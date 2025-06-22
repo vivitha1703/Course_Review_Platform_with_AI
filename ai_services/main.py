@@ -4,7 +4,7 @@ from typing import List
 from pymongo import MongoClient
 import pandas as pd
 import numpy as np
-from textblob import TextBlob  # ✅ added for sentiment analysis
+from textblob import TextBlob  # ✅ added for sentiment 
 
 app = FastAPI()
 
