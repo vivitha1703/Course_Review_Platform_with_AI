@@ -1,59 +1,46 @@
-console.log('SERVER: Script execution started.'); // <-- Add this
+// --- GLOBAL UNCAUGHT ERROR HANDLERS ---
+// These are crucial for debugging crashes that happen outside of Promises
+process.on('uncaughtException', (err) => {
+  console.error('SERVER FATAL ERROR: Uncaught Exception:', err.message, err.stack);
+  process.exit(1); // Exit after uncaught exception
+});
 
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('SERVER FATAL ERROR: Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1); // Exit after unhandled rejection
+});
+
+// Load environment variables FIRST
 require('dotenv').config();
-console.log('SERVER: Dotenv configured. Process.env keys:', Object.keys(process.env).join(', ')); // <-- Add this to see env vars
+console.log('SERVER INIT: Dotenv configured.');
 
-<<<<<<< HEAD
-const express = require('express');
-=======
-
-const app = require('./app');
->>>>>>> 818e906 (Updated frontend)
 const mongoose = require('mongoose');
-const cors = require('cors');
 
-const app = express(); // Assuming Express app is initialized here or imported from app.js
-console.log('SERVER: Express app initialized.'); // <-- Add this
+// Import the configured Express app from app.js
+const app = require('./app');
+console.log('SERVER INIT: Express app imported from app.js.');
 
-app.use(cors());
-app.use(express.json());
-console.log('SERVER: Middleware applied (CORS, JSON parser).'); // <-- Add this
-
+// MongoDB Connection Section
 const mongoURI = process.env.MONGO_URI;
-console.log('SERVER: Attempting to connect to MongoDB. MONGO_URI loaded:', !!mongoURI); // <-- Check if URI exists
+console.log('SERVER INIT: Attempting MongoDB connection...');
+console.log('SERVER INIT: MONGO_URI is set:', !!mongoURI);
 
 if (!mongoURI) {
-  console.error('SERVER: ERROR: MongoDB URI is NOT defined in environment variables. Exiting.'); // <-- More specific error
+  console.error('SERVER ERROR: MONGO_URI environment variable is NOT defined. Cannot connect to MongoDB. Exiting.');
   process.exit(1);
 }
 
 mongoose.connect(mongoURI)
   .then(() => {
-    console.log('SERVER: MongoDB connected successfully!'); // <-- Success log
-    // Proceed with starting the server only after DB connection
+    console.log('SERVER SUCCESS: MongoDB connected successfully!');
     const PORT = process.env.PORT || 5000;
-    console.log(`SERVER: Attempting to start server on port ${PORT}`); // <-- Before listen
+    console.log(`SERVER: Attempting to start server on port ${PORT}`);
     app.listen(PORT, () => {
-      console.log(`SERVER: Server successfully running and listening on port ${PORT}`); // <-- Final success log
+      console.log(`SERVER SUCCESS: Server running and listening on port ${PORT}`);
     });
   })
   .catch((err) => {
-    console.error('SERVER: ERROR: MongoDB connection failed:', err.message, err.stack); // <-- Detailed error
-    process.exit(1); // Exit if DB connection fails
+    console.error('SERVER ERROR: MongoDB connection failed:', err.message);
+    console.error(err.stack);
+    process.exit(1);
   });
-
-// Add routes and other app logic here
-app.get('/', (req, res) => {
-  res.send('Backend is alive!');
-});
-
-// Add global unhandled error listeners for Node.js (Crucial for catching crashes)
-process.on('uncaughtException', (err) => {
-    console.error('SERVER: FATAL: Uncaught Exception:', err.message, err.stack);
-    process.exit(1);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-    console.error('SERVER: FATAL: Unhandled Rejection at:', promise, 'reason:', reason);
-    process.exit(1);
-});
