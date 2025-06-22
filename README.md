@@ -20,13 +20,13 @@ Whether you're a student looking for the best course or an instructor managing y
 
 ## ✨ Features
 
-- 🔐 **JWT Authentication** with role-based access
-- 📚 **Course Catalog** with filtering and sorting
-- 📝 **Student Reviews & Ratings**
-- 📊 **Instructor Dashboard** with pie chart analysis
-- 📈 **Admin Dashboard** for user and course management
-- 🤖 **AI-based Course Recommendations** 
-- 📦 **MongoDB** backend integration with Mongoose
+-  **JWT Authentication** with role-based access
+-  **Course Catalog** with filtering and sorting
+-  **Student Reviews & Ratings**
+-  **Instructor Dashboard** with pie chart analysis
+-  **Admin Dashboard** for user and course management
+-  **AI-based Course Recommendations** 
+-  **MongoDB** backend integration with Mongoose
 
 ---
 
@@ -69,24 +69,23 @@ AI Endpoints:
 
 ## 🚀 Setup Instructions
 
-### 🔧 Prerequisites:
+###  Prerequisites:
 - Node.js and npm
 - MongoDB (local or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
 
-### 🖥️ Frontend Setup:
-npm install
-npm run dev
+###  Frontend Setup:
+- npm install
+- npm run dev
 
-### ⚙️ Backend Setup:
-npm install
-npm run dev
-uvicorn main:app —reload —port 8000
+###  Backend Setup:
+- npm install
+- npm run dev
+- uvicorn main:app —reload —port 8000
+- Your backend will be running at http://localhost:5000/.
 
-pip install -r requirements.txt
-
-Your backend will be running at \`http://localhost:5000\`.
-
+### AI steps:
+- pip install -r requirements.txt
+- python main.py
+- AI endpoints are serving at 'http://localhost:5001/'.
+  
 ---
-
-
-> These can be developed using Python Flask API or Node services integrated with TensorFlow or HuggingFace NLP models.
