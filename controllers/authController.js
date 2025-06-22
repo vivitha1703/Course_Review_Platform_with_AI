@@ -1,7 +1,7 @@
 const User = require('../models/userModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
+const axios = require('axios');
 const JWT_SECRET = process.env.JWT_SECRET;
 
 // Register
@@ -99,5 +99,16 @@ exports.getProfile = async (req, res) => {
     res.json(user);
   } catch (err) {
     res.status(500).json({ message: 'Failed to fetch profile', error: err.message });
+  }
+};
+
+exports.getRecommendations = async (req, res) => {
+  try {
+    const response = await axios.post('http://localhost:8000/recommend', {
+      user_id: req.user._id.toString()
+    });
+    res.json(response.data);
+  } catch (err) {
+    res.status(500).json({ message: 'AI recommendation failed', error: err.message });
   }
 };
