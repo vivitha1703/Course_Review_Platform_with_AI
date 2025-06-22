@@ -38,9 +38,9 @@ EduView includes optional AI support:
 - Sentiment analysis based on the feedback
 
 AI Endpoints:
-/sentiment --> Accepts feedback text and returns a sentiment score to understand user emotions and course perception
-/similar-courses --> Accepts a course description and returns a list of courses that are semantically similar using cosine similarity.
-/recommendations --> Provides personalized course recommendations based on the user's review history using collaborative filtering.
+- /sentiment --> Accepts feedback text and returns a sentiment score to understand user emotions and course perception
+- /similar-courses --> Accepts a course description and returns a list of courses that are semantically similar using cosine similarity.
+- /recommendations --> Provides personalized course recommendations based on the user's review history using collaborative filtering.
 
 ---
 
