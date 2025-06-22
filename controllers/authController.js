@@ -8,11 +8,11 @@ const JWT_SECRET = process.env.JWT_SECRET;
 exports.register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
-    console.log("Incoming registration:", { name, email, role }); // ✅ Log to terminal
+    console.log("Incoming registration:", { name, email, role });
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      console.log("User already exists:", email); // ✅
+      console.log("User already exists:", email); 
       return res.status(400).json({ message: 'User already exists' });
     }
 
@@ -36,7 +36,7 @@ exports.register = async (req, res) => {
       }
     });
   } catch (err) {
-    console.error("Error in register:", err.message); // ✅
+    console.error("Error in register:", err.message); 
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };

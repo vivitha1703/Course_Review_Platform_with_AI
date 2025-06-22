@@ -3,7 +3,12 @@ console.log('SERVER: Script execution started.'); // <-- Add this
 require('dotenv').config();
 console.log('SERVER: Dotenv configured. Process.env keys:', Object.keys(process.env).join(', ')); // <-- Add this to see env vars
 
+<<<<<<< HEAD
 const express = require('express');
+=======
+
+const app = require('./app');
+>>>>>>> 818e906 (Updated frontend)
 const mongoose = require('mongoose');
 const cors = require('cors');
 

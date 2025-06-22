@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+}
+
+.admin-page {
+  background-color: #f0f6fc;
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* Navigation bar */
+.admin-header {
+  background-color: #1b4383;
+  color: white;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h1 {
+  font-size: 1.8rem;
+}
+
+.admin-nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+}
+
+.admin-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Section styling */
+.admin-section {
+  background-color: white;
+  margin: 2rem auto;
+  padding: 2rem;
+  width: 85%;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+.admin-section h2 {
+  margin-bottom: 1.5rem;
+  color: #1a4fa3;
+}
+
+/* Overview Boxes */
+.overview-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.box {
+  background-color: #f4f9ff;
+  flex: 1;
+  min-width: 220px;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* User Table */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+
+.user-table th,
+.user-table td {
+  padding: 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #e9f1fb;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  background-color: #1a4fa3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  background-color: #143d7c;
+}

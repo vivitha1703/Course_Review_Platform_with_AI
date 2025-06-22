@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6fa;
+}
+
+/* Header */
+.header {
+  background-color: #1a4fa3;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.course-page {
+  display: flex;
+  padding: 1rem 2rem;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #f7f9fc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-right: 2rem;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.sidebar h3 {
+  margin-top: 1.5rem;
+  color: #1a4fa3;
+}
+
+.sidebar label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.levels label,
+.sort-options label {
+  display: block;
+  margin: 0.3rem 0;
+  font-weight: normal;
+}
+
+/* Main courses section */
+.courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  flex-grow: 1;
+}
+
+/* Course card */
+.course-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.course-card img {
+  width: 100%;
+  height: 150px;
+  border-radius: 5px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.course-card p {
+  font-weight: bold;
+  color: #222;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
