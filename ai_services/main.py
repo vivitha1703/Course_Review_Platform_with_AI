@@ -4,28 +4,27 @@ from typing import List
 from pymongo import MongoClient
 import pandas as pd
 import numpy as np
-from textblob import TextBlob  # ✅ added for sentiment 
+from textblob import TextBlob  
 
 app = FastAPI()
 
-# MongoDB connection
 client = MongoClient("mongodb://localhost:27017/")
 db = client["course-review-ai"]
 review_collection = db["reviews"]
 
-# === MODELS ===
+
 class RecInput(BaseModel):
     user_id: str
 
 class SentimentInput(BaseModel):
     text: str
 
-# === UTILS ===
+
 def get_review_data():
     reviews = list(review_collection.find({}, {"_id": 0, "user_id": 1, "course_id": 1, "rating": 1}))
     return pd.DataFrame(reviews)
 
-# === RECOMMENDATION ENDPOINT ===
+
 @app.post("/recommend")
 def recommend(input: RecInput):
     user = input.user_id
@@ -56,7 +55,7 @@ def recommend(input: RecInput):
         "recommended_courses": rec_courses
     }
 
-# === SENTIMENT ANALYSIS ENDPOINT ===
+
 @app.post("/sentiment")
 def analyze_sentiment(data: SentimentInput):
     review = data.text
@@ -67,4 +66,3 @@ def analyze_sentiment(data: SentimentInput):
         "sentiment": label,
         "score": round(polarity, 3)
     }
-# === START THE SERVER ===
