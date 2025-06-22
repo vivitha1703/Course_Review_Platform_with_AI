@@ -67,3 +67,4 @@ def analyze_sentiment(data: SentimentInput):
         "sentiment": label,
         "score": round(polarity, 3)
     }
+# === START THE SERVER ===

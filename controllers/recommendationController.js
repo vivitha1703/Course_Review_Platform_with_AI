@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+//call form main AI service to get recommendations
 exports.getRecommendations = async (req, res) => {
   try {
     const response = await axios.post('http://localhost:8000/recommend', {
