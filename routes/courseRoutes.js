@@ -7,9 +7,8 @@ const { authorizeRoles } = require('../middleware/roleMiddleware');
 // Public
 router.get('/', getAllCourses);
 ('/:id', getCourseById);
-router.get('/autocomplete', autocompleteCourses);
 
-// Admin Only
+
 router.post('/', protect, authorizeRoles('admin'), createCourse);
 
 module.exports = router;

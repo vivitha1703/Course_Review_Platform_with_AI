@@ -14,15 +14,18 @@ const courseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  difficulty: {
+  level: {
     type: String,
     enum: ['beginner', 'intermediate', 'advanced'],
     default: 'beginner'
   },
-  prerequisites: {
-    type: [String],
-    default: []
-  }
+  instructor: {
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  },
+  instructor_details: {
+    type: String,
+    required: true
+  },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Course', courseSchema);
