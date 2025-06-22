@@ -30,6 +30,20 @@ Whether you're a student looking for the best course or an instructor managing y
 
 ---
 
+## 🧠 AI Integration
+
+EduView includes optional AI support:
+- Recommendation system based on student reviews and interests
+- Course similarity analysis
+- Sentiment analysis based on the feedback
+
+AI Endpoints:
+/sentiment --> Accepts feedback text and returns a sentiment score to understand user emotions and course perception
+/similar-courses --> Accepts a course description and returns a list of courses that are semantically similar using cosine similarity.
+/recommendations --> Provides personalized course recommendations based on the user's review history using collaborative filtering.
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Frontend:
@@ -68,15 +82,11 @@ npm install
 npm run dev
 uvicorn main:app —reload —port 8000
 
+pip install -r requirements.txt
+
 Your backend will be running at \`http://localhost:5000\`.
 
 ---
 
-## 🧠 AI Integration
-
-EduView includes optional AI support:
-- Recommendation system based on student reviews and interests
-- Course similarity analysis
-- Sentiment analysis 
 
 > These can be developed using Python Flask API or Node services integrated with TensorFlow or HuggingFace NLP models.
