@@ -9,7 +9,7 @@ from textblob import TextBlob
 app = FastAPI()
 
 client = MongoClient("mongodb://localhost:27017/")
-db = client["course-review-ai"]
+db = client["course-review-db"]
 review_collection = db["reviews"]
 
 
